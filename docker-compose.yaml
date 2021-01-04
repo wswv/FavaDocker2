@@ -1,0 +1,17 @@
+#base on grostim/fava-docker
+version: "2"
+services:
+  fava:
+    image: selffava:1.0
+    container_name: beancount
+    environment:
+      - BEANCOUNT_FILE=/input.beancount
+   
+    volumes:
+      
+      - ./fava/beanfile/example.beancount:/input.beancount
+      
+    user: 'uid'
+    ports:
+      - 5000:5000    
+    restart: unless-stopped
